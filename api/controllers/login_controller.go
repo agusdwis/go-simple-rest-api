@@ -14,10 +14,12 @@ import (
 
 func (server *Server) Login(w http.ResponseWriter, r *http.Request) {
 	body, err := ioutil.ReadAll(r.Body)
+
 	if err != nil {
 		responses.ERROR(w, http.StatusUnprocessableEntity, err)
 		return
 	}
+
 	user := models.User{}
 	err = json.Unmarshal(body, &user)
 	if err != nil {
@@ -46,7 +48,7 @@ func (server *Server) SignIn(email, password string) (string, error) {
 
 	user := models.User{}
 
-	err = server.DB.Debug().Model(models.User{}).Where("email = ?", email).Take(&user).Error
+	err = server.DB.Model(models.User{}).Where("email = ?", email).Take(&user).Error
 	if err != nil {
 		return "", err
 	}
