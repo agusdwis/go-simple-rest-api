@@ -80,12 +80,12 @@ func TestLogin(t *testing.T) {
 		{
 			inputJSON:    `{"email": "test1@gmail.com", "password": "wrong password"}`,
 			statusCode:   422,
-			errorMessage: "Incorrect Password!",
+			errorMessage: "Incorrect Password",
 		},
 		{
 			inputJSON:    `{"email": "frank@gmail.com", "password": "password"}`,
 			statusCode:   422,
-			errorMessage: "Incorrect Details!",
+			errorMessage: "Incorrect Details",
 		},
 		{
 			inputJSON:    `{"email": "kangmail.com", "password": "password"}`,
@@ -100,7 +100,7 @@ func TestLogin(t *testing.T) {
 		{
 			inputJSON:    `{"email": "kan@gmail.com", "password": ""}`,
 			statusCode:   422,
-			errorMessage: "Required Password!",
+			errorMessage: "Required Password",
 		},
 		{
 			inputJSON:    `{"email": "", "password": "password"}`,
