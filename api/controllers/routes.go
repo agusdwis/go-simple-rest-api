@@ -23,4 +23,9 @@ func (server *Server) initializeRoutes() {
 	server.Router.HandleFunc("/posts/{id}", middlewares.SetMiddlewareJSON(server.GetPost)).Methods("GET")
 	server.Router.HandleFunc("/posts/{id}", middlewares.SetMiddlewareJSON(middlewares.SetMiddlewareAuthentication(server.UpdatePost))).Methods("PUT")
 	server.Router.HandleFunc("/posts/{id}", middlewares.SetMiddlewareAuthentication(server.DeletePost)).Methods("DELETE")
+
+	//Likes route
+	server.Router.HandleFunc("/likes/{id}", middlewares.SetMiddlewareJSON(server.GetLike)).Methods("GET")
+	server.Router.HandleFunc("/likes/{id}", middlewares.SetMiddlewareJSON(middlewares.SetMiddlewareAuthentication(server.LikePost))).Methods("POST")
+	server.Router.HandleFunc("/likes/{id}", middlewares.SetMiddlewareAuthentication(server.UnlikePost)).Methods("DELETE")
 }
