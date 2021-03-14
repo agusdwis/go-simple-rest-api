@@ -10,6 +10,8 @@ import (
 	"github.com/agusdwis/rest-api/api/responses"
 	"github.com/agusdwis/rest-api/api/utils/formaterror"
 	"golang.org/x/crypto/bcrypt"
+
+	"github.com/agusdwis/rest-api/api/security"
 )
 
 func (server *Server) Login(w http.ResponseWriter, r *http.Request) {
@@ -52,7 +54,7 @@ func (server *Server) SignIn(email, password string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	err = models.VerifyPassword(user.Password, password)
+	err = security.VerifyPassword(user.Password, password)
 	if err != nil && err == bcrypt.ErrMismatchedHashAndPassword {
 		return "", err
 	}

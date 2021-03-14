@@ -53,7 +53,7 @@ func TestCreatePost(t *testing.T) {
 			inputJSON:    `{"title":"The title", "content": "the content", "author_id": 1}`,
 			statusCode:   500,
 			tokenGiven:   tokenString,
-			errorMessage: "Title Already Taken!",
+			errorMessage: "Title Already Taken",
 		},
 		{
 			// When no token is passed
@@ -288,7 +288,7 @@ func TestUpdatePost(t *testing.T) {
 			updateJSON:   `{"title":"Title 2", "content": "This is the updated content", "author_id": 1}`,
 			statusCode:   500,
 			tokenGiven:   tokenString,
-			errorMessage: "Title Already Taken!",
+			errorMessage: "Title Already Taken",
 		},
 		{
 			id:           strconv.Itoa(int(AuthPostID)),

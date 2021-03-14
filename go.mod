@@ -15,5 +15,5 @@ require (
 	github.com/pelletier/go-toml v1.8.1 // indirect
 	golang.org/x/crypto v0.0.0-20210220033148-5ea612d1eb83
 	golang.org/x/sys v0.0.0-20210313202042-bd2e13477e9c // indirect
-	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
+	gopkg.in/go-playground/assert.v1 v1.2.1
 )
