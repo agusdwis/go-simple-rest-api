@@ -48,7 +48,7 @@ func (server *Server) SignIn(email, password string) (string, error) {
 
 	user := models.User{}
 
-	err = server.DB.Model(models.User{}).Where("email = ?", email).Take(&user).Error
+	err = server.DB.Debug().Model(models.User{}).Where("email = ?", email).Take(&user).Error
 	if err != nil {
 		return "", err
 	}

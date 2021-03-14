@@ -63,6 +63,7 @@ func (u *User) Validate(action string) error {
 		}
 
 		return nil
+
 	case "login":
 		if u.Password == "" {
 			return errors.New("Required Password!")
